@@ -10,7 +10,10 @@ export const metadata: Metadata = {
   title: 'Supreme Court Cause List Processor',
   description: 'Upload a cause list PDF and extract cases by serial number using OCR',
   generator: 'v0.app',
-  colorScheme: 'dark',
+}
+
+export const viewport = {
+  themeColor: 'dark',
 }
 
 export default function RootLayout({

@@ -77,16 +77,16 @@ async def upload_pdf(
     cache_key = f"{file_hash}:{selected_engine}"
 
     # Return cached result if same file + engine was already processed
-    if cache_key in cache:
-        logger.info("Cache hit for %s (%s)", file_hash[:12], selected_engine)
-        cached = cache[cache_key]
-        current_file_hash = cache_key
-        return UploadResponse(
-            total_cases_detected=len(cached["cases"]),
-            pages_processed=cached["pages"],
-            extraction_time=0.0,
-            engine_used=cached["engine"],
-        )
+    # if cache_key in cache:
+    #     logger.info("Cache hit for %s (%s)", file_hash[:12], selected_engine)
+    #     cached = cache[cache_key]
+    #     current_file_hash = cache_key
+    #     return UploadResponse(
+    #         total_cases_detected=len(cached["cases"]),
+    #         pages_processed=cached["pages"],
+    #         extraction_time=0.0,
+    #         engine_used=cached["engine"],
+    #     )
 
     # Write to temp file for OCR engines that need a file path
     tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
